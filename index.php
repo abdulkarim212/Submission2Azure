@@ -8,7 +8,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
+$gambar="https://www.mongabay.co.id/wp-content/uploads/2018/05/4-Panorama-laut-dari-Dermaga-Ketapang-menuju-ke-Pulau-Pahawang.jpg";
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==";
 
