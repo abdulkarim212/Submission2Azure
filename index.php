@@ -8,7 +8,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$gambar="https://www.mongabay.co.id/wp-content/uploads/2018/05/4-Panorama-laut-dari-Dermaga-Ketapang-menuju-ke-Pulau-Pahawang.jpg";
+$gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==";
 
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SUBMISSION 2</title>
+    <title>Analyze Sample</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
         });
     };
 </script>
-<h1>Upload Image:</h1>
+<h1>Upload Image</h1>
 <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
                 <input type="submit" name="submitblob" value="Upload">
@@ -118,8 +118,8 @@ if (isset($_POST['submit'])) {
             <thead>
                 <tr>
                     <th>Nama</th>
-                    <th>Url</th>
-                    
+                    <th>Link</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -131,7 +131,12 @@ if (isset($_POST['submit'])) {
                         <tr>
                             <td><?php echo $blob->getName() ?></td>
                             <td><?php echo $blob->getUrl() ?></td>
-                    
+                            <td>
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="url" value="<?php echo $blob->getUrl()?>">
+                                    <input type="submit" name="submit" value="Transfer Link " class="btn btn-primary">
+                                </form>
+                            </td>
                         </tr>
                         <?php
                     }
