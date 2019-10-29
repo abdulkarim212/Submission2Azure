@@ -111,9 +111,6 @@ if (isset($_POST['submit'])) {
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
                 <input type="submit" name="submitblob" value="Upload">
 </form>
-<br>
-        <br>
-        <h4>Total Files : <?php echo sizeof($result->getBlobs())?></h4>
         <table class='table table-hover' border="1">
             <thead>
                 <tr>
@@ -148,7 +145,7 @@ if (isset($_POST['submit'])) {
  
 <h1>Analyze image:</h1>
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
-<br><br>
+<br>
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
     value="<?php echo $gambar; ?>" />
@@ -167,8 +164,7 @@ Image to analyze:
         <img id="sourceImage" width="400" />
     </div>
 </div>
-<br>
-<br>
+
 
 </body>
 </html>
