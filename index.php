@@ -1,5 +1,5 @@
 <?php
-require_once "vendor/autoload.php";
+require_once 'vendor/autoload.php';
 require_once "random_string.php";
 
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
@@ -10,9 +10,9 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
 $gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==;EndpointSuffix=core.windows.net";
 
-$containerName = "blockblobsaqvgri";
+$containerName = "blockblobsaqvgri2";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -108,12 +108,8 @@ if (isset($_POST['submit'])) {
 </script>
  
 <h1>Analyze image:</h1>
-Enter the URL to an image, then click the <strong>Analyze image</strong> button.
-<br><br>
-Image to analyze:
-<input type="text" name="inputImage" id="inputImage"
-    value="<?php echo $gambar; ?>" />
-    <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
+<h2>Upload to Blob:</h1>
+<form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
                 <input type="submit" name="submitblob" value="Upload">
 </form>
@@ -151,8 +147,11 @@ Image to analyze:
                 ?>
             </tbody>
         </table>
-        <br>
-        <br>
+Enter the URL to an image, then click the <strong>Analyze image</strong> button.
+<br><br>
+Image to analyze:
+<input type="text" name="inputImage" id="inputImage"
+    value="<?php echo $gambar; ?>" />
 <button onclick="processImage()">Analyze image</button>
 <br><br>
 <div id="wrapper" style="width:1020px; display:table;">
