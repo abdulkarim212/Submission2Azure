@@ -10,7 +10,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
 $gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==;EndpointSuffix=core.windows.net";
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==";
 
 $containerName = "blockblobsaqvgri";
 
