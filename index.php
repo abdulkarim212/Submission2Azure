@@ -8,7 +8,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$gambar="https://www.mongabay.co.id/wp-content/uploads/2018/05/4-Panorama-laut-dari-Dermaga-Ketapang-menuju-ke-Pulau-Pahawang.jpg";
+$gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==;EndpointSuffix=core.windows.net";
 
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SUBMISSION 2</title>
+    <title>Analyze Sample</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -106,40 +106,6 @@ if (isset($_POST['submit'])) {
         });
     };
 </script>
-<h1>Upload Image:</h1>
-<form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
-                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
-                <input type="submit" name="submitblob" value="Upload">
-</form>
-<br>
-        <br>
-        <h4>Total Files : <?php echo sizeof($result->getBlobs())?></h4>
-        <table class='table table-hover' border="1">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Url</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                do {
-                    foreach ($result->getBlobs() as $blob)
-                    {
-                        ?>
-                        <tr>
-                            <td><?php echo $blob->getName() ?></td>
-                            <td><?php echo $blob->getUrl() ?></td>
-                    
-                        </tr>
-                        <?php
-                    }
-                    $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-                } while($result->getContinuationToken());
-                ?>
-            </tbody>
-        </table>
  
 <h1>Analyze image:</h1>
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
@@ -164,6 +130,43 @@ Image to analyze:
 </div>
 <br>
 <br>
-
+<form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
+                <input type="submit" name="submitblob" value="Upload">
+</form>
+<br>
+        <br>
+        <h4>Total Files : <?php echo sizeof($result->getBlobs())?></h4>
+        <table class='table table-hover' border="1">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>File URL</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                do {
+                    foreach ($result->getBlobs() as $blob)
+                    {
+                        ?>
+                        <tr>
+                            <td><?php echo $blob->getName() ?></td>
+                            <td><?php echo $blob->getUrl() ?></td>
+                            <td>
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="url" value="<?php echo $blob->getUrl()?>">
+                                    <input type="submit" name="submit" value="Kirim Link ke box analyze" class="btn btn-primary">
+                                </form>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+                } while($result->getContinuationToken());
+                ?>
+            </tbody>
+        </table>
 </body>
 </html>
