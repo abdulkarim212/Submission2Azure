@@ -8,7 +8,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$gambar="https://www.thesun.co.uk/wp-content/uploads/2017/08/kurt-cobain.jpg";
+$gambar="https://www.mongabay.co.id/wp-content/uploads/2018/05/4-Panorama-laut-dari-Dermaga-Ketapang-menuju-ke-Pulau-Pahawang.jpg";
 
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodeblob;AccountKey=jQZolP71pOHgGwOk2IILHm2iJG9cbBMDBhci2zlBIpBkYvyRtvCKaxzwhxl1whfyjYuOH5JSz38ix7Kvr6CEUg==;EndpointSuffix=core.windows.net";
 
@@ -106,9 +106,7 @@ if (isset($_POST['submit'])) {
         });
     };
 </script>
- 
-<h1>Analyze image:</h1>
-<h2>Upload to Blob:</h1>
+<h1>Upload Image:</h1>
 <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
                 <input type="submit" name="submitblob" value="Upload">
@@ -119,9 +117,9 @@ if (isset($_POST['submit'])) {
         <table class='table table-hover' border="1">
             <thead>
                 <tr>
-                    <th>File Name</th>
-                    <th>File URL</th>
-                    <th>Action</th>
+                    <th>Nama</th>
+                    <th>Url</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -133,12 +131,7 @@ if (isset($_POST['submit'])) {
                         <tr>
                             <td><?php echo $blob->getName() ?></td>
                             <td><?php echo $blob->getUrl() ?></td>
-                            <td>
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="url" value="<?php echo $blob->getUrl()?>">
-                                    <input type="submit" name="submit" value="Kirim Link ke box analyze" class="btn btn-primary">
-                                </form>
-                            </td>
+                    
                         </tr>
                         <?php
                     }
@@ -147,6 +140,8 @@ if (isset($_POST['submit'])) {
                 ?>
             </tbody>
         </table>
+ 
+<h1>Analyze image:</h1>
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
