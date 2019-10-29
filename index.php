@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Analyze Sample</title>
+    <title>SUBMISSION 2</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -113,24 +113,7 @@ Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 Image to analyze:
 <input type="text" name="inputImage" id="inputImage"
     value="<?php echo $gambar; ?>" />
-<button onclick="processImage()">Analyze image</button>
-<br><br>
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:
-        <br><br>
-        <textarea id="responseTextArea" class="UIInput"
-                  style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:
-        <br><br>
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-<br>
-<br>
-<form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
+    <form class="d-flex justify-content-lefr" action="index.php" method="post" enctype="multipart/form-data">
                 <input type="file" name="fileToUpload" accept=".jpeg,.jpg,.png" required=""><br><br>
                 <input type="submit" name="submitblob" value="Upload">
 </form>
@@ -168,5 +151,25 @@ Image to analyze:
                 ?>
             </tbody>
         </table>
+        <br>
+        <br>
+<button onclick="processImage()">Analyze image</button>
+<br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:
+        <br><br>
+        <textarea id="responseTextArea" class="UIInput"
+                  style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:
+        <br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+<br>
+<br>
+
 </body>
 </html>
